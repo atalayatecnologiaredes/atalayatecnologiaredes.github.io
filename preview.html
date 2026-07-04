@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Atalaya Tecnología & Redes | Cámaras, Alarmas, Redes y Soporte Técnico</title>
+  <meta name="description" content="Instalación, mantenimiento y soporte técnico de cámaras de seguridad, alarmas, redes, cableado estructurado y sistemas tecnológicos en Manabí, Ecuador." />
+  <meta name="theme-color" content="#020617" />
+
+  <style>
+    :root {
+      --dark: #020617;
+      --dark-2: #07111f;
+      --blue-dark: #0f172a;
+      --blue: #0284c7;
+      --blue-2: #0369a1;
+      --cyan: #38bdf8;
+      --cyan-soft: rgba(56, 189, 248, .14);
+      --green: #22c55e;
+      --green-2: #16a34a;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --white: #ffffff;
+      --card: rgba(255, 255, 255, .075);
+      --card-2: rgba(255, 255, 255, .105);
+      --border: rgba(255, 255, 255, .13);
+      --shadow: 0 25px 70px rgba(0, 0, 0, .38);
+      --radius: 28px;
+      --max: 1180px;
+      --header: 82px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header) + 20px);
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(2, 132, 199, .18), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(34, 197, 94, .08), transparent 30rem),
+        var(--dark);
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    p {
+      color: #cbd5e1;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      background: var(--cyan);
+      color: var(--dark);
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 800;
+      z-index: 3000;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+    }
+
+    header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      background: rgba(2, 6, 23, .82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      width: min(var(--max), calc(100% - 32px));
+      min-height: var(--header);
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      background: white;
+      border-radius: 16px;
+      padding: 7px;
+      box-shadow: 0 8px 25px rgba(56, 189, 248, .16);
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: clamp(15px, 2vw, 19px);
+      letter-spacing: .35px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 360px;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--cyan);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .menu-btn span,
+    .menu-btn span::before,
+    .menu-btn span::after {
+      content: "";
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 20px;
+      background: var(--text);
+      transition: .25s ease;
+    }
+
+    .menu-btn span::before {
+      transform: translateY(-7px);
+    }
+
+    .menu-btn span::after {
+      transform: translateY(5px);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 2vw, 22px);
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    nav a {
+      padding: 10px 0;
+      position: relative;
+      transition: .25s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 4px;
+      width: 0;
+      height: 2px;
+      border-radius: 20px;
+      background: var(--cyan);
+      transition: .25s ease;
+    }
+
+    nav a:hover {
+      color: var(--cyan);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      min-height: 100svh;
+      padding: calc(var(--header) + 75px) 0 85px;
+      background:
+        linear-gradient(105deg, rgba(2, 6, 23, .92) 0%, rgba(2, 6, 23, .78) 48%, rgba(2, 6, 23, .95) 100%),
+        url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1800&q=85");
+      background-size: cover;
+      background-position: center;
+      display: grid;
+      align-items: center;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 130px;
+      background: linear-gradient(to bottom, transparent, var(--dark));
+      z-index: -1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(300px, .88fr);
+      gap: clamp(30px, 6vw, 58px);
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, .35);
+      background: rgba(56, 189, 248, .12);
+      margin-bottom: 24px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, .12);
+    }
+
+    .hero h1 {
+      font-size: clamp(39px, 7vw, 76px);
+      line-height: .98;
+      letter-spacing: -2.3px;
+      margin-bottom: 24px;
+      max-width: 780px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      max-width: 690px;
+      font-size: clamp(17px, 2.3vw, 20px);
+      line-height: 1.75;
+      margin-bottom: 34px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 52px;
+      padding: 14px 22px;
+      border-radius: 15px;
+      font-weight: 850;
+      transition: transform .25s ease, background .25s ease, border-color .25s ease;
+      border: 1px solid transparent;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), #075985);
+      color: white;
+      box-shadow: 0 16px 30px rgba(2, 132, 199, .24);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--blue-2), #075985);
+      transform: translateY(-3px);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, var(--green), #15803d);
+      color: white;
+      box-shadow: 0 16px 30px rgba(34, 197, 94, .22);
+    }
+
+    .btn-whatsapp:hover {
+      background: linear-gradient(135deg, var(--green-2), #15803d);
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border-color: var(--border);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(56, 189, 248, .45);
+      transform: translateY(-3px);
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .045));
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: clamp(18px, 3vw, 30px);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -70px;
+      top: -70px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, .16);
+      filter: blur(4px);
+    }
+
+    .hero-logo {
+      width: min(100%, 430px);
+      margin-inline: auto;
+      background: white;
+      border-radius: 26px;
+      padding: clamp(22px, 5vw, 38px);
+      position: relative;
+    }
+
+    .hero-stats {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .stat {
+      background: rgba(15, 23, 42, .85);
+      border: 1px solid var(--border);
+      padding: 18px;
+      border-radius: 18px;
+      min-width: 0;
+    }
+
+    .stat strong {
+      color: var(--cyan);
+      font-size: clamp(23px, 4vw, 30px);
+      display: block;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      padding: clamp(64px, 9vw, 96px) 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 0 auto 48px;
+      max-width: 780px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(31px, 5vw, 49px);
+      line-height: 1.08;
+      letter-spacing: -1.3px;
+      margin-bottom: 14px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 18px);
+      line-height: 1.65;
+    }
+
+    .about-box {
+      background:
+        linear-gradient(135deg, rgba(2, 132, 199, .17), rgba(255, 255, 255, .055)),
+        rgba(255, 255, 255, .035);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(25px, 5vw, 44px);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .2);
+    }
+
+    .about-box p {
+      line-height: 1.9;
+      font-size: clamp(16px, 2vw, 18px);
+    }
+
+    .about-box strong {
+      color: var(--cyan);
+    }
+
+    .services-grid,
+    .steps,
+    .brands {
+      display: grid;
+      gap: 22px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card,
+    .support-box,
+    .step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+
+    .card {
+      padding: 28px;
+      min-height: 100%;
+    }
+
+    .card:hover,
+    .step:hover {
+      transform: translateY(-7px);
+      border-color: rgba(56, 189, 248, .45);
+      background: rgba(56, 189, 248, .105);
+    }
+
+    .icon {
+      font-size: 42px;
+      margin-bottom: 18px;
+      line-height: 1;
+    }
+
+    .card h3 {
+      color: #7dd3fc;
+      margin-bottom: 14px;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .card p,
+    .card li,
+    .step p {
+      color: #cbd5e1;
+      line-height: 1.72;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 14px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .card li::before {
+      content: "✓ ";
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .dark-section {
+      background:
+        radial-gradient(circle at top right, rgba(56, 189, 248, .09), transparent 35rem),
+        #0f172a;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .support-box {
+      padding: clamp(25px, 4vw, 36px);
+    }
+
+    .support-box h3 {
+      color: var(--cyan);
+      font-size: clamp(24px, 3.3vw, 30px);
+      line-height: 1.16;
+      margin-bottom: 18px;
+    }
+
+    .support-box p {
+      line-height: 1.9;
+      font-size: 17px;
+    }
+
+    .maintenance-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .maintenance-item {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid var(--border);
+      color: #cbd5e1;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+    }
+
+    .maintenance-item strong {
+      color: var(--green);
+      margin-right: 8px;
+      font-size: 18px;
+    }
+
+    .steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .step {
+      padding: 26px;
+    }
+
+    .step span {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), #075985);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      margin-bottom: 18px;
+      box-shadow: 0 12px 24px rgba(2, 132, 199, .22);
+    }
+
+    .step h3 {
+      color: var(--cyan);
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .brands {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .brand-card {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 12px;
+      text-align: center;
+      color: #e2e8f0;
+      font-weight: 850;
+      letter-spacing: .5px;
+      transition: .25s ease;
+    }
+
+    .brand-card:hover {
+      transform: translateY(-4px);
+      color: var(--cyan);
+      border-color: rgba(56, 189, 248, .38);
+    }
+
+    .contact {
+      background:
+        linear-gradient(135deg, rgba(8, 47, 73, .96), rgba(2, 6, 23, .98)),
+        radial-gradient(circle at center, rgba(56, 189, 248, .18), transparent 28rem);
+    }
+
+    .contact-box {
+      max-width: 880px;
+      margin-inline: auto;
+      text-align: center;
+      background: rgba(255, 255, 255, .085);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: clamp(28px, 6vw, 48px);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      font-size: clamp(32px, 5vw, 46px);
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+    }
+
+    .contact-box p {
+      font-size: 18px;
+      margin: 12px 0;
+    }
+
+    .contact-actions {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      background: #020617;
+      text-align: center;
+      color: var(--muted);
+      padding: 30px 20px 92px;
+      border-top: 1px solid var(--border);
+    }
+
+    .float-whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 62px;
+      height: 62px;
+      background: linear-gradient(135deg, var(--green), #15803d);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      z-index: 2000;
+      box-shadow: 0 15px 35px rgba(34, 197, 94, .45);
+      transition: transform .25s ease;
+    }
+
+    .float-whatsapp:hover {
+      transform: translateY(-4px) scale(1.03);
+    }
+
+    @media (max-width: 1100px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .brands {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 920px) {
+      :root {
+        --header: 76px;
+      }
+
+      .menu-btn {
+        display: inline-flex;
+      }
+
+      nav {
+        position: fixed;
+        top: var(--header);
+        left: 16px;
+        right: 16px;
+        display: grid;
+        gap: 6px;
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        background: rgba(2, 6, 23, .96);
+        box-shadow: var(--shadow);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        pointer-events: none;
+        transition: .22s ease;
+      }
+
+      nav a {
+        padding: 13px 14px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, .04);
+      }
+
+      nav a::after {
+        display: none;
+      }
+
+      nav a:hover {
+        background: rgba(56, 189, 248, .12);
+      }
+
+      .menu-toggle:checked ~ nav {
+        transform: scaleY(1);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .menu-toggle:checked + .menu-btn span {
+        background: transparent;
+      }
+
+      .menu-toggle:checked + .menu-btn span::before {
+        transform: translateY(1px) rotate(45deg);
+      }
+
+      .menu-toggle:checked + .menu-btn span::after {
+        transform: translateY(-1px) rotate(-45deg);
+      }
+
+      .hero-grid,
+      .support-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: center;
+        padding-top: calc(var(--header) + 55px);
+      }
+
+      .badge,
+      .buttons {
+        justify-content: center;
+      }
+
+      .hero p {
+        margin-inline: auto;
+      }
+
+      .hero-card {
+        max-width: 560px;
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .navbar {
+        width: min(100% - 24px, var(--max));
+      }
+
+      .brand img {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+      }
+
+      .brand-text strong {
+        max-width: 210px;
+      }
+
+      .brand-text span {
+        font-size: 11px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.4px;
+      }
+
+      .buttons .btn {
+        width: 100%;
+      }
+
+      .hero-stats,
+      .services-grid,
+      .maintenance-list,
+      .brands {
+        grid-template-columns: 1fr;
+      }
+
+      .card,
+      .support-box,
+      .step,
+      .about-box,
+      .contact-box {
+        border-radius: 22px;
+      }
+
+      .contact-box p {
+        font-size: 16px;
+        word-break: break-word;
+      }
+
+      .float-whatsapp {
+        right: 16px;
+        bottom: 16px;
+        width: 58px;
+        height: 58px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#inicio">Saltar al contenido</a>
+
+  <header>
+    <div class="navbar">
+      <a href="#inicio" class="brand" aria-label="Atalaya Tecnología & Redes">
+        <img src="/img/logo4.png" alt="Logo Atalaya Tecnología & Redes">
+        <div class="brand-text">
+          <strong>Atalaya Tecnología & Redes</strong>
+          <span>Seguridad · Redes · Soporte</span>
+        </div>
+      </a>
+
+      <input class="menu-toggle" type="checkbox" id="menu-toggle" aria-label="Abrir menú">
+      <label class="menu-btn" for="menu-toggle" aria-label="Menú">
+        <span></span>
+      </label>
+
+      <nav aria-label="Menú principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#soporte">Soporte</a>
+        <a href="#mantenimiento">Mantenimiento</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge">Seguridad electrónica · Redes · Soporte técnico</span>
+
+          <h1>
+            Protegemos lo que más <span>importa</span>
+          </h1>
+
+          <p>
+            Soluciones profesionales en cámaras de seguridad, alarmas, redes,
+            cableado estructurado, mantenimiento y soporte técnico para hogares,
+            negocios y empresas.
+          </p>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="#contacto">Solicitar cotización</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/593989253675?text=Hola%20Atalaya%20Tecnolog%C3%ADa%20%26%20Redes%2C%20necesito%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="Atalaya Tecnología y Redes">
+          <img class="hero-logo" src="/img/logo5.jpg" alt="Atalaya Tecnología & Redes">
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>Soporte y acompañamiento</span>
+            </div>
+
+            <div class="stat">
+              <strong>CCTV</strong>
+              <span>Cámaras, alarmas y redes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <div class="container">
+        <div class="section-title">
+          <h2>Atalaya Tecnología & Redes</h2>
+          <p>Tecnología que protege. Conectividad que impulsa.</p>
+        </div>
+
+        <div class="about-box">
+          <p>
+            Somos una empresa especializada en soluciones tecnológicas y sistemas de
+            seguridad electrónica para hogares, negocios y empresas.
+          </p>
+
+          <br>
+
+          <p>
+            Diseñamos, instalamos y damos mantenimiento a sistemas de
+            <strong>videovigilancia, alarmas, redes de datos, cableado estructurado
+            y equipos tecnológicos</strong>, brindando soluciones seguras, eficientes
+            y adaptadas a las necesidades de cada cliente.
+          </p>
+
+          <br>
+
+          <p>
+            Nuestro compromiso es ofrecer un servicio profesional, utilizando equipos
+            confiables, personal capacitado y soporte técnico continuo para garantizar
+            la continuidad y el correcto funcionamiento de cada instalación.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="servicios">
+      <div class="container">
+        <div class="section-title">
+          <h2>Nuestros servicios</h2>
+          <p>Soluciones integrales en seguridad, conectividad y soporte técnico.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card">
+            <div class="icon">📹</div>
+            <h3>Cámaras de Seguridad</h3>
+            <p>Instalación y configuración de sistemas CCTV para monitoreo local y remoto.</p>
+            <ul>
+              <li>Cámaras IP y analógicas</li>
+              <li>DVR y NVR</li>
+              <li>Visualización desde celular</li>
+              <li>Configuración de grabación</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="icon">🚨</div>
+            <h3>Sistemas de Alarmas</h3>
+            <p>Soluciones de alarma para proteger viviendas, locales, bodegas y empresas.</p>
+            <ul>
+              <li>Sensores de movimiento</li>
+              <li>Sirenas y paneles</li>
+              <li>Control de acceso</li>
+              <li>Configuración y pruebas</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="icon">🌐</div>
+            <h3>Redes y Telecomunicaciones</h3>
+            <p>Instalación y optimización de redes para internet, oficinas y sistemas CCTV.</p>
+            <ul>
+              <li>Cableado estructurado</li>
+              <li>Routers y switches</li>
+              <li>Redes LAN y WiFi</li>
+              <li>Fibra óptica</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="icon">💻</div>
+            <h3>Soporte Técnico</h3>
+            <p>Asistencia para equipos tecnológicos, redes, cámaras, alarmas y sistemas.</p>
+            <ul>
+              <li>Diagnóstico de fallas</li>
+              <li>Configuración de equipos</li>
+              <li>Soporte remoto y presencial</li>
+              <li>Optimización del sistema</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="soporte">
+      <div class="container">
+        <div class="section-title">
+          <h2>Soporte técnico especializado</h2>
+          <p>Siempre a su lado cuando más lo necesita.</p>
+        </div>
+
+        <div class="support-grid">
+          <article class="support-box">
+            <h3>Soporte en cámaras y alarmas en funcionamiento</h3>
+            <p>
+              En Atalaya Tecnología & Redes entendemos que un sistema de seguridad
+              debe funcionar las 24 horas del día. Por ello brindamos soporte técnico
+              especializado para mantener sus cámaras, alarmas y redes operando
+              correctamente.
+            </p>
+
+            <br>
+
+            <p>
+              Atendemos incidencias, configuraciones, revisión de equipos,
+              mantenimiento preventivo y correctivo, asistencia remota o presencial,
+              ofreciendo respuestas rápidas y soluciones eficientes.
+            </p>
+          </article>
+
+          <article class="support-box">
+            <h3>¿En qué podemos ayudarle?</h3>
+
+            <div class="maintenance-list">
+              <div class="maintenance-item"><strong>✓</strong> Problemas de conexión</div>
+              <div class="maintenance-item"><strong>✓</strong> Visualización remota</div>
+              <div class="maintenance-item"><strong>✓</strong> Fallas de grabación</div>
+              <div class="maintenance-item"><strong>✓</strong> Configuración de DVR/NVR</div>
+              <div class="maintenance-item"><strong>✓</strong> Cámaras sin señal</div>
+              <div class="maintenance-item"><strong>✓</strong> Alarmas desconfiguradas</div>
+              <div class="maintenance-item"><strong>✓</strong> Revisión de internet</div>
+              <div class="maintenance-item"><strong>✓</strong> Optimización de red</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="mantenimiento">
+      <div class="container">
+        <div class="section-title">
+          <h2>Mantenimiento preventivo y correctivo</h2>
+          <p>Prevenimos fallas, prolongamos la vida útil de sus equipos y mejoramos el rendimiento del sistema.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card">
+            <div class="icon">📷</div>
+            <h3>Mantenimiento de Cámaras</h3>
+            <p>Limpieza, ajuste de enfoque, revisión de imagen, conectores, cableado y funcionamiento general.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">💾</div>
+            <h3>DVR / NVR</h3>
+            <p>Revisión de grabadores, discos duros, fechas de grabación, usuarios, contraseñas y respaldo de configuración.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🔌</div>
+            <h3>Redes y Cableado</h3>
+            <p>Diagnóstico de puntos de red, switches, routers, fuentes de poder, canaletas y cableado estructurado.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🛠️</div>
+            <h3>Corrección de Fallas</h3>
+            <p>Solución de cámaras desconectadas, alarmas sin respuesta, pérdida de internet y fallas de visualización.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodologia">
+      <div class="container">
+        <div class="section-title">
+          <h2>Nuestra metodología</h2>
+          <p>Trabajamos con orden, diagnóstico y soluciones profesionales.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <span>1</span>
+            <h3>Visita técnica</h3>
+            <p>Analizamos las necesidades del cliente y revisamos el lugar de instalación o mantenimiento.</p>
+          </article>
+
+          <article class="step">
+            <span>2</span>
+            <h3>Diseño de solución</h3>
+            <p>Proponemos una solución tecnológica de acuerdo con el presupuesto y requerimiento.</p>
+          </article>
+
+          <article class="step">
+            <span>3</span>
+            <h3>Instalación profesional</h3>
+            <p>Ejecutamos el trabajo usando materiales adecuados y buenas prácticas técnicas.</p>
+          </article>
+
+          <article class="step">
+            <span>4</span>
+            <h3>Configuración</h3>
+            <p>Configuramos cámaras, alarmas, redes, aplicaciones móviles y acceso remoto.</p>
+          </article>
+
+          <article class="step">
+            <span>5</span>
+            <h3>Capacitación</h3>
+            <p>Explicamos al cliente el uso correcto del sistema instalado.</p>
+          </article>
+
+          <article class="step">
+            <span>6</span>
+            <h3>Soporte permanente</h3>
+            <p>Acompañamos al cliente después de la instalación para mantener el sistema operativo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="marcas">
+      <div class="container">
+        <div class="section-title">
+          <h2>Marcas con las que trabajamos</h2>
+          <p>Equipos y soluciones confiables para cada necesidad.</p>
+        </div>
+
+        <div class="brands">
+          <div class="brand-card">HIKVISION</div>
+          <div class="brand-card">DAHUA</div>
+          <div class="brand-card">EZVIZ</div>
+          <div class="brand-card">TP-LINK</div>
+          <div class="brand-card">UBIQUITI</div>
+          <div class="brand-card">MERCUSYS</div>
+          <div class="brand-card">MIKROTIK</div>
+          <div class="brand-card">UNV</div>
+          <div class="brand-card">INTELBRAS</div>
+          <div class="brand-card">GENÉRICAS</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container">
+        <div class="contact-box">
+          <h2>Contáctanos</h2>
+
+          <p><strong>WhatsApp:</strong> +593 989 253 675</p>
+          <p><strong>Correo:</strong> Atalayatecnologiaredes@gmail.com</p>
+          <p><strong>Ubicación:</strong> Manabí, Ecuador</p>
+
+          <p>
+            Solicita una cotización para instalación, mantenimiento o soporte técnico.
+          </p>
+
+          <div class="contact-actions">
+            <a class="btn btn-whatsapp" href="https://wa.me/593989253675?text=Hola%20Atalaya%20Tecnolog%C3%ADa%20%26%20Redes%2C%20necesito%20una%20cotizaci%C3%B3n." target="_blank" rel="noopener">
+              Escribir por WhatsApp
+            </a>
+
+            <a class="btn btn-primary" href="mailto:Atalayatecnologiaredes@gmail.com">
+              Enviar correo
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Atalaya Tecnología & Redes. Todos los derechos reservados.
+    <br>
+    Tecnología que protege. Conectividad que impulsa.
+  </footer>
+
+  <a class="float-whatsapp" href="https://wa.me/593989253675?text=Hola%20Atalaya%20Tecnolog%C3%ADa%20%26%20Redes%2C%20necesito%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    💬
+  </a>
+</body>
+</html>
